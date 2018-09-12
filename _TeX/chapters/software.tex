@@ -1,28 +1,28 @@
 \chapter{Software setup}
-The described experiments can be implemented using a software capable of exchanging informations between robots, without the interaction of a human. A tool named Robot Operative System has been chosen in order to manage the informations between the devices involved in these experiments.  
+The described experiments can be implemented using a software capable of exchanging informations between robots, without the interaction of a human. A tool named Robot Operative System has been chosen in order to manage the informations between the devices involved in these experiments.
+%  
 \section{Ros}
-The Robot Operative System (ROS) is a set of frameworks and libraries useful for robot software development. The logic of this software is really intuitive, it lets the developers to represent a device as node inside a graph. The most important node is this graph is the \textit{Master}, which is managing all the messages in the system. Each node in order to send or receive messages to/from other nodes must communicate this intention to the \textit{Master} node, which is processing the request and forwarding the right informations.\\
-The result is a graph, built as a network of ROS nodes.
-The main concepts in the ROS graph are ROS Nodes, Master, Parameter server, Messages,
-Topics, Services, and Bags. 
+The Robot Operative System (ROS) is a set of frameworks and libraries useful for robot software development. The logic of this software is really intuitive, it lets the developers to represent a device as node inside a graph. The most important node is this graph is the \textit{Master}, which is managing all the messages in the system. Each node in order to send/receive messages to/from other nodes must communicate his intention to the \textit{Master} node, which is processing the request and forwarding the right informations.\\
+The result is a graph, built as a network of ROS nodes. The main concepts in the ROS graph are ROS Nodes, Master, Parameter server, Messages, Topics, Services, and Bags. 
 %Each concept in the graph is contributed to this graphin different ways.
-Each message in ROS is transported using named buses called topics. When a node sends a message through a topic, then it can be asserted that the node is publishing a message on topic. When a node receives a message through a topic,
-then we can say that the node is subscribing to a topic but the production of information and consumption of it are decoupled. Each topic has a unique name, and any node can access this topic and send data through it, as long as they have the right message type. The type of a message can be chosen among the standard primitive types (integer, floating point, Boolean, and so on) or custom message types can be defined. Custom field structures of messages are useful in order to send an information which is conceptually explained with more than one standard type (f.i a device could be publishing all the available measurements in one single topic).
+Each message in ROS is transported using named buses called topics. When a node sends a message through a topic, then it can be asserted that the node is publishing a message on topic. When a node receives a message through a topic, then we can say that the node is subscribing to a topic but the production of information and consumption of it are decoupled. 
+Each topic has a unique name, and any node can access this topic and communicate with it, as long as they have the right message type. The type of a message can be chosen among the standard primitive types (integer, floating point, Boolean, and so on) or custom message types can be defined. Custom field structures of messages are useful in order to send an information which is conceptually explained with more than one standard type (f.i a device instrumented with multiple sensors could be publishing all the available measurements in one single topic).
 %The ROS graph is oriented since the messages between nodes are edges of the graph passing the information from the node who is publishing to the one subscribed to it.
 
 \section{Nodes}
-The main aim of ROS nodes is to build simple processes, this makes debug easier and simplify the structure of a project. Each ROS node is written using ROS client libraries such as roscpp and rospy, in short a ROS node can be written as a C++ source file or as a python executable program. 
+The main aim of ROS nodes is to build simple processes, this makes debug easier and simplify the structure of a project. Each ROS node is written using ROS client libraries such as roscpp and rospy.%, in short a ROS node can be written as a C++ source file or as a python executable program. 
 
 \subsection{Pisa/IIT SoftHand node}
 Pisa/ITT SoftHand is provided with a variety of ROS packages, in particular, ROS node \textit{qb\textunderscore force\textunderscore interface} is the node managing the proportional controller on the position of the Pisa/IIT SoftHand. This node is publishing a topic named: /qb\textunderscore class/hand\textunderscore measurement which embeds a custom field structure named: qb\textunderscore interface/handPos. This custom type message embeds three float values with the meaning respectively of: sensed current position $q_{output}$, absorbed current, error between $q_{output}$ and $q_{ref}$.
 
 \subsection{FSRs node}
-The FSRs are connected to a bare PCB, each one following the circuit diagram in Fig. \ref{Fig:FSRcircuit}; This allows the source code flashed on the Arduino to: read the voltage difference at FSRs terminals, publish the information to ROS.
+The FSRs are connected to a bare PCB, each one following the circuit diagram in Fig. \ref{Fig:FSRcircuit}; This allows the source code flashed on the controller of the Arduino Uno to: read the voltage difference at FSRs terminals, elaborate the information and publish a topic in the ROS master.
 % apply the linear model for force measurements and publish the information to ROS.
-A specific protocol called \textit{rosserial} is used in order to implement a ROS node with Arduino.
+A specific protocol called \textit{rosserial} is used in order to implement a ROS node with Arduino, this protocol simplify the development of a ROS node in the Arduino environment.
 
 \subsection{Auxiliary nodes}
-The hardware related nodes of the project are now up and running, but in order to manage the informations and to eventually save files during the execution of the experiments, auxiliary nodes are created.
+
+The hardware related nodes of the project are explained above, but in order to manage the informations and to eventually save files during the execution of the experiments, auxiliary nodes are created.
 The auxiliary nodes are written in C++ or Python and the choice is strictly related to the compatibility with specific library (f.i. \textit{SMACH} State MACHine is a library used to implement state machines, currently only available in Python).
 Several auxiliary nodes have been created in order to manage:
 

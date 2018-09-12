@@ -9941,7 +9941,7 @@ Missing character: There is no n in font nullfont!
 ! Undefined control sequence.
 <write> ...ence `EQ:fsrdummyfit' on page \thepage 
                                                   \space undefined\on@line .
-l.156 ...e fitted equation in \ref{EQ:fsrdummyfit}
+l.156 ...e fitted equation in \eqref{eq:fsrdummyfit}
                                                   . The handshake event is i...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -14005,7 +14005,7 @@ Missing character: There is no n in font nullfont!
 ! Undefined control sequence.
 <write> ...ence `EQ:forceSteady' on page \thepage 
                                                   \space undefined\on@line .
-l.196 ...ng force is shown in \ref{EQ:forceSteady}
+l.196 ...ng force is shown in \eqref{eq:forceSteady}
                                                   , participants are asked t...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -16695,7 +16695,7 @@ Missing character: There is no d in font nullfont!
 ! Undefined control sequence.
 <write> ...nce `EQ:genericForce' on page \thepage 
                                                   \space undefined\on@line .
-l.240 ...ion above mentioned \ref{EQ:genericForce}
+l.240 ...ion above mentioned \eqref{eq:genericForce}
                                                   , therefore it is providin...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -18117,7 +18117,7 @@ Missing character: There is no e in font nullfont!
 ! Undefined control sequence.
 <write> ...ence `EQ:forceSteady' on page \thepage 
                                                   \space undefined\on@line .
-l.269 ...during the handshake \ref{EQ:forceSteady}
+l.269 ...during the handshake \eqref{eq:forceSteady}
                                                   .
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -19990,7 +19990,7 @@ Missing character: There is no n in font nullfont!
 ! Undefined control sequence.
 <write> ...ence `EQ:forceSteady' on page \thepage 
                                                   \space undefined\on@line .
-l.324 ...ng the assumption in \ref{EQ:forceSteady}
+l.324 ...ng the assumption in \eqref{eq:forceSteady}
                                                    to obtain $F_{r}$.
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -20851,7 +20851,7 @@ Missing character: There is no m in font nullfont!
 ! Undefined control sequence.
 <write> ...eference `EQ:qlimits' on page \thepage 
                                                   \space undefined\on@line .
-l.329 ...sure signals $q$ as from \ref{EQ:qlimits}
+l.329 ...sure signals $q$ as from \eqref{eq:qlimits}
                                                   , is set as input to the P...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
